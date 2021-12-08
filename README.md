@@ -3,7 +3,8 @@
 [![Travis Build Status](https://travis-ci.com/logstash-plugins/logstash-input-google_pubsub.svg)](https://travis-ci.com/logstash-plugins/logstash-input-google_pubsub)
 
 This is a [Logstash](https://github.com/elastic/logstash) input plugin for
-[Google Pub/Sub](https://cloud.google.com/pubsub/). The plugin can subscribe
+[Google Pub/Sub](https://cloud.google.com/pubsub/) and [Google Pub/Sub Lite](https://cloud.google.com/pubsub/lite/docs). 
+The plugin can subscribe
 to a topic and ingest messages.
 
 The main motivation behind the development of this plugin was to ingest
@@ -26,6 +27,7 @@ https://cloud.google.com/ to get started,
 
 - Google Cloud Platform Projects and [Overview](https://cloud.google.com/docs/overview/)
 - Goolge Cloud Pub/Sub [documentation](https://cloud.google.com/pubsub/)
+- Goolge Cloud Pub/Sub Lite [documentation](https://cloud.google.com/pubsub/lite/docs)
 - Stackdriver Logging [documentation](https://cloud.google.com/logging/)
 
 ### Cloud Pub/Sub
