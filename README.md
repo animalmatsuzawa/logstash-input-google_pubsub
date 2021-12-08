@@ -79,6 +79,7 @@ JSON and converted to a logstash `event` as-is in
 
 ### Sample Configuration
 
+#### Pub/Sub
 Below is a copy of the included `example.conf-tmpl` file that shows a basic
 configuration for this plugin.
 
@@ -96,6 +97,38 @@ input {
         # The subscription name is customizeable. The plugin will attempt to
         # create the subscription (but use the hard-coded topic name above).
         subscription => "logstash-sub"
+
+        # If you are running logstash within GCE, it will use
+        # Application Default Credentials and use GCE's metadata
+        # service to fetch tokens.  However, if you are running logstash
+        # outside of GCE, you will need to specify the service account's
+        # JSON key file below.
+        #json_key_file => "/home/erjohnso/pkey.json"
+    }
+}
+
+output { stdout { codec => rubydebug } }
+```
+
+#### Pub/Sub Lite
+
+```
+input {
+    google_pubsublite {
+        # Your GCP project id (name)
+        project_id => "my-project-1234"
+
+        # The topic name below is currently hard-coded in the plugin. You
+        # must first create this topic by hand and ensure you are exporting
+        # logging to this pubsub topic.
+        topic => "logstash-input-dev"
+
+        # The subscription name is customizeable. The plugin will attempt to
+        # create the subscription (but use the hard-coded topic name above).
+        subscription => "logstash-sub"
+
+        # Pub/Sub lite topic locations
+        cloud_zone => "asia-northeast1-b"
 
         # If you are running logstash within GCE, it will use
         # Application Default Credentials and use GCE's metadata
